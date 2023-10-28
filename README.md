@@ -54,9 +54,12 @@ Push to the Branch (git push origin feature/AmazingFeature)
 Open a Pull 
 
 #### Contact
-Contributing members: 
-  Nhi Mai Thi Yen - 10422061@student.vgu.edu.vn
-  Anh Nguyen Ngoc Minh - 10422009@student.vgu.edu.vn
-  Vy Nguyen Thao - 10421067@student.vgu.edu.vn
 
-Project Link: (https://github.com/nima321123/G11_Intro2CS_Project)
+Contributing members:
+
+- Nhi Mai Thi Yen - 10422061@student.vgu.edu.vn
+- Anh Nguyen Ngoc Minh - 10422009@student.vgu.edu.vn
+- Vy Nguyen Thao - 10421067@student.vgu.edu.vn
+
+Project Link: [https://github.com/nima321123/G11_Intro2CS_Project](https://github.com/nima321123/G11_Intro2CS_Project)
+
