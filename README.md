@@ -36,8 +36,8 @@ To get a local copy up and running, follow these simple steps:
     - Install with: `pip install matplotlib`
   - **NumPy**: NumPy is for numerical operations and data manipulation.
     - Install with: `pip install numpy`
-
-Additionally, the code assumes that you have access to a dataset for image classification, which is loaded from a local directory. You need to specify the correct dataset path and structure in the code to match your project's requirements. If you intend to run this code on a GPU, you'll also need GPU support and the CUDA toolkit installed to take full advantage of PyTorch's GPU acceleration capabilities.
+  - dataset download link: https://drive.google.com/drive/folders/1lBIF4usxogPDP-Nr2qMdLP5jYXwiGV5t?usp=sharing
+You need to specify the correct dataset path and structure in the code to match your project's requirements. If you intend to run this code on a GPU, you'll also need GPU support and the CUDA toolkit installed to take full advantage of PyTorch's GPU acceleration capabilities.
 
 3. Run the main file
    ```sh
