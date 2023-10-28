@@ -39,7 +39,7 @@ To get a local copy up and running, follow these simple steps:
 
 Additionally, the code assumes that you have access to a dataset for image classification, which is loaded from a local directory. You need to specify the correct dataset path and structure in the code to match your project's requirements. If you intend to run this code on a GPU, you'll also need GPU support and the CUDA toolkit installed to take full advantage of PyTorch's GPU acceleration capabilities.
 
-4. Run the main file
+3. Run the main file
    ```sh
    python main.py
    ```
