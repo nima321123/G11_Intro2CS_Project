@@ -22,19 +22,23 @@ To get a local copy up and running, follow these simple steps:
   
    git clone https://github.com/nima321123/G11_Intro2CS_Project.git
   
+
 2. Install the required packages
-      2.1. Task 1:
-      2.2. Task 2:
-      2.3. Task 3:
-            PyTorch: PyTorch is a deep learning framework.
-            Install with: pip install torch
-            Torchvision: Torchvision is a library for computer vision tasks, providing datasets and data transformation utilities.
-            Install with: pip install torchvision
-            Matplotlib: Matplotlib is used for data visualization.
-            Install with: pip install matplotlib
-            NumPy: NumPy is for numerical operations and data manipulation.
-            Install with: pip install numpy
-            Additionally, the code assumes that you have access to a dataset for image classification, which is loaded from a local directory. You need to specify the correct dataset path and structure in the code to match your project's requirements. If you intend to run this code on a GPU, you'll also need GPU support and the CUDA toolkit installed to take full advantage of PyTorch's GPU acceleration capabilities.
+
+- **Task 1:**
+- **Task 2:**
+- **Task 3:**
+  - **PyTorch**: PyTorch is a deep learning framework.
+    - Install with: `pip install torch`
+  - **Torchvision**: Torchvision is a library for computer vision tasks, providing datasets and data transformation utilities.
+    - Install with: `pip install torchvision`
+  - **Matplotlib**: Matplotlib is used for data visualization.
+    - Install with: `pip install matplotlib`
+  - **NumPy**: NumPy is for numerical operations and data manipulation.
+    - Install with: `pip install numpy`
+
+Additionally, the code assumes that you have access to a dataset for image classification, which is loaded from a local directory. You need to specify the correct dataset path and structure in the code to match your project's requirements. If you intend to run this code on a GPU, you'll also need GPU support and the CUDA toolkit installed to take full advantage of PyTorch's GPU acceleration capabilities.
+
 4. Run the main file
    ```sh
    python main.py
