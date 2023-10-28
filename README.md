@@ -9,7 +9,7 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
    - This task is responsible for fetching climate information from the OpenWeatherMap API. It demonstrates how to use an API to collect weather data and showcases the multitasking capabilities of the RTOS.
 
 2. **Task 2: Disease Detection using AI Model**
-   - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. This task may involve processing medical data to make predictions or classifications based on the AI model's trained knowledge.
+   - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. 
 
 3. **Task 3: CNN Image Classification with PyTorch**
    - Task 3 focuses on computer vision and deep learning, using the PyTorch library to implement a Convolutional Neural Network (CNN) for classifying five different flower species based on images. This task demonstrates the application of deep learning in an RTOS environment.
