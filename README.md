@@ -11,8 +11,8 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
 2. **Task 2: Disease Detection using AI Model**
    - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. 
 
-3. **Task 3: Classify flower species using Google Teachable Machine** This project leverages Google Teachable Machine to classify five different types of flowers. It offers a straightforward user interface for image input, with the capability to provide instant flower classification and associated confidence scores.
-   
+3. **Task 3: Simple Hangman game** The project is a text-based Hangman game. It randomly selects a word from a predefined list, and the player has 10 attempts to guess the characters in the word. When a correct character is guessed, it is revealed in the word. If an incorrect character is guessed, the player loses a chance. The game continues until the player either guesses all the characters in the word or runs out of chances. After each guess, the user interface updates to display the current revealed characters and checks whether the game is over.
+4. 
 ### Getting Started
 
 To get a local copy up and running, follow these simple steps:
