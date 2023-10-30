@@ -11,9 +11,8 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
 2. **Task 2: Disease Detection using AI Model**
    - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. 
 
-3. **Task 3: CNN Image Classification with PyTorch**
-   - Task 3 focuses on computer vision and deep learning, using the PyTorch library to implement a Convolutional Neural Network (CNN) for classifying five different flower species based on images. This task demonstrates the application of deep learning in an RTOS environment.
-
+3. **Task 3: Google Teachable Machine model to classify flowers**
+   
 ### Getting Started
 
 To get a local copy up and running, follow these simple steps:
@@ -28,30 +27,13 @@ To get a local copy up and running, follow these simple steps:
 - **Task 1:**
 - **Task 2:**
 - **Task 3:**
-  - **PyTorch**: PyTorch is a deep learning framework.
-    - Install with: `pip install torch`
-  - **Torchvision**: Torchvision is a library for computer vision tasks, providing datasets and data transformation utilities.
-    - Install with: `pip install torchvision`
-  - **Matplotlib**: Matplotlib is used for data visualization.
-    - Install with: `pip install matplotlib`
-  - **NumPy**: NumPy is for numerical operations and data manipulation.
-    - Install with: `pip install numpy`
-  - dataset download link: https://drive.google.com/drive/folders/1lBIF4usxogPDP-Nr2qMdLP5jYXwiGV5t?usp=sharing
-You need to specify the correct dataset path and structure in the code to match your project's requirements. If you intend to run this code on a GPU, you'll also need GPU support and the CUDA toolkit installed to take full advantage of PyTorch's GPU acceleration capabilities.
+  
 
 3. Run the main file
    ```sh
    python main.py
    ```
-### Contributing
 
-Contributions make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull 
 
 #### Contact
 
