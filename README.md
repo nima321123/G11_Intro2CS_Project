@@ -11,7 +11,7 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
 2. **Task 2: Disease Detection using AI Model**
    - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. 
 
-3. **Task 3: Google Teachable Machine model to classify flowers**
+3. **Task 3: Classify flower species using Google Teachable Machine** This project leverages Google Teachable Machine to classify five different types of flowers. It offers a straightforward user interface for image input, with the capability to provide instant flower classification and associated confidence scores.
    
 ### Getting Started
 
