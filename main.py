@@ -1,43 +1,56 @@
-from keras.models import load_model  # TensorFlow is required for Keras to work
-from PIL import Image, ImageOps  # Install pillow instead of PIL
+import tkinter as tk
+from tkinter import filedialog
+from PIL import Image, ImageOps
+from keras.models import load_model
 import numpy as np
 
-# Disable scientific notation for clarity
-np.set_printoptions(suppress=True)
+class Task3: 
+    # Load the model
+    model = load_model("keras_Model.h5", compile=False)
 
-# Load the model
-model = load_model("keras_Model.h5", compile=False)
+    # Load the labels
+    class_names = open("labels.txt", "r").readlines()
 
-# Load the labels
-class_names = open("labels.txt", "r").readlines()
+    def select_image(self):
+        # Open file dialog to select an image file
+        file_path = filedialog.askopenfilename()
+        
+        # Process the image and make a prediction
+        image = Image.open(file_path).convert("RGB")
+        size = (224, 224)
+        image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
+        image_array = np.asarray(image)
+        normalized_image_array = (image_array.astype(np.float32) / 127.5) - 1
 
-# Create the array of the right shape to feed into the keras model
-# The 'length' or number of images you can put into the array is
-# determined by the first position in the shape tuple, in this case 1
-data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+        data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+        data[0] = normalized_image_array
 
-# Replace this with the path to your image
-image = Image.open(r"C:\Users\Admin\Desktop\G11 IntroCS Project\ProjectTemplate1\task3GoogleTM\test.jpg").convert("RGB")
+        prediction = self.model.predict(data)
+        index = np.argmax(prediction)
+        class_name = self.class_names[index]
+        confidence_score = prediction[0][index]
+        return class_name, confidence_score
 
-# resizing the image to be at least 224x224 and then cropping from the center
-size = (224, 224)
-image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
+    def __init__(self):
+        # Create a Tkinter window
+        self.root = tk.Tk()
+        self.root.geometry("300x300")
+        self.root.title("Flower Species Classification")  # Set the title here
 
-# turn the image into a numpy array
-image_array = np.asarray(image)
+        # Add a label to display the prediction and confidence score
+        self.result_text = tk.StringVar()
+        result_label = tk.Label(self.root, textvariable=self.result_text)
+        result_label.pack()
 
-# Normalize the image
-normalized_image_array = (image_array.astype(np.float32) / 127.5) - 1
+        # Add a button to select an image
+        select_button = tk.Button(self.root, text="Select an image", command=self.update_result_text)
+        select_button.pack()
 
-# Load the image into the array
-data[0] = normalized_image_array
+        # Start the Tkinter event loop
+        self.root.mainloop()
 
-# Predicts the model
-prediction = model.predict(data)
-index = np.argmax(prediction)
-class_name = class_names[index]
-confidence_score = prediction[0][index]
+    def update_result_text(self):
+        class_name, confidence_score = self.select_image()
+        self.result_text.set(f"Class: {class_name}\nConfidence Score: {confidence_score}")
 
-# Print prediction and confidence score
-print("Class:", class_name[2:], end="")
-print("Confidence Score:", confidence_score)
+
