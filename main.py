@@ -4,6 +4,8 @@ from PIL import Image, ImageOps
 from keras.models import load_model
 import numpy as np
 
+
+
 class Task3: 
     # Load the model
     model = load_model("keras_Model.h5", compile=False)
@@ -52,5 +54,9 @@ class Task3:
     def update_result_text(self):
         class_name, confidence_score = self.select_image()
         self.result_text.set(f"Class: {class_name}\nConfidence Score: {confidence_score}")
+   
+
+    
+
 
 
