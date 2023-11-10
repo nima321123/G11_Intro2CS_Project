@@ -1,50 +1,82 @@
 import requests
 import datetime as dt
-import tkinter as tk
+import sys
+import time
+from Adafruit_IO import MQTTClient
 
 class Task1:
-    def get_weather():
-        BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
-        API_KEY = "c9e9db60a93f15a43de916d49d078ae9" 
-        CITY = city_entry.get() #obtain the city entered in the Entry Widget 
+    def __init__(self):
+        print("Init task 1")
+        #define the URL
+        self.BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
+        self.API_KEY = "c9e9db60a93f15a43de916d49d078ae9"
+        self.CITY = "Frankfurt"
 
-        # Make a request to the weather API
-        url = BASE_URL + "appid=" + API_KEY + "&q=" + CITY
-        response = requests.get(url)
-        data = response.json()
+        self.AIO_FEED_ID = ""
+        self.AIO_USERNAME = "hej_manh"
+        self.AIO_KEY = "aio_Xvbo681rOMfMbFRuZf4azUF1dkO0"
 
-        # Extract weather information from the API response
-        if data['cod'] == 200: #sucessful response
-            city_name = data['name']
-            temp_kelvin = data['main']['temp']
-            temp_celsius = temp_kelvin - 273.15
-            feels_like_kelvin = data['main']['feels_like']
-            feels_like_celsius = feels_like_kelvin - 273.15
-            wind_speed = data['wind']['speed']
-            humidity = data['main']['humidity']
-            description = data['weather'][0]['description']
-            sunrise_time = dt.datetime.utcfromtimestamp(data['sys']['sunrise'] + data['timezone'])
-            sunset_time = dt.datetime.utcfromtimestamp(data['sys']['sunset'] + data['timezone'])
+        #set up MQTT client and define callback function
+        self.client = MQTTClient(self.AIO_USERNAME, self.AIO_KEY)
+        self.client.on_connect = self.connected
+        self.client.on_disconnect = self.disconnected
+        self.client.on_message = self.message
+        self.client.on_subscribe = self.subscribe
 
-            # Update the label with the weather information
-            weather_label.config(text=f"City: {city_name}\nTemperature: {temp_celsius:.2f}°C\nFeels like: {feels_like_celsius:.2f}°C\nGeneral weather: {description}\nHumidity: {humidity}%\nWind speed: {wind_speed}m/s\nSun rise at {sunrise_time} local time\n Sun sets at {sunset_time} local time")
-        else:
-            weather_label.config(text="Invalid city name")
+    def kelvin_to_celsius(self, kelvin):
+        celsius = kelvin - 273.15
+        return celsius
 
-root = tk.Tk()
-root.title('Weather API')
-root.geometry('300x300')
+    def connected(self, client):
+        print("Server connected ...")
+        self.client.subscribe("cityname")
+        self.client.subscribe("temperature")
+        self.client.subscribe("feelslike")
+        self.client.subscribe("windspeed")
+        self.client.subscribe("humidity")
+        self.client.subscribe("description")
+        self.client.subscribe("sunrisetime")
+        self.client.subscribe("sunsettime")
 
-# Create and pack the city entry field
-city_entry = tk.Entry(root)
-city_entry.pack()
+    def subscribe(self, client, userdata, mid, granted_qos):
+        print("Subscribe ...")
 
-# Create the weather label
-weather_label = tk.Label(root)
-weather_label.pack()
+    def disconnected(self, client):
+        print("Disconnect from server ...")
+        sys.exit(1)
 
-# Create the button to fetch weather data
-weather_button = tk.Button(root, text="Get Weather", command=Task1.get_weather)
-weather_button.pack()
+    def message(self, client, feed_id, payload):
+        print("Received: " + payload)
 
-root.mainloop()
+    def Task1_Run(self):
+        print("Task 1 is activated")
+        url = self.BASE_URL + "appid=" + self.API_KEY + "&q=" + self.CITY
+        response = requests.get(url).json()
+
+        #get data from response in API
+        temp_kelvin = response['main']['temp']
+        temp_celsius = self.kelvin_to_celsius(temp_kelvin)
+        feels_like_kelvin = response['main']['feels_like']
+        feels_like_celsius = self.kelvin_to_celsius(feels_like_kelvin)
+        wind_speed = response['wind']['speed']
+        humidity = response['main']['humidity']
+        description = response['weather'][0]['description']
+        sunrise_time = dt.datetime.utcfromtimestamp(response['sys']['sunrise'] + response['timezone'])
+        sunset_time = dt.datetime.utcfromtimestamp(response['sys']['sunset'] + response['timezone'])
+        
+        #establish a connection with MQTT broker and start background loop
+        self.client.connect()
+        self.client.loop_background()
+
+        while True:
+            #send data to client
+            time.sleep(5)
+            self.client.publish("cityname", self.CITY)
+            self.client.publish("temperature", str(round(temp_celsius, 2)))
+            self.client.publish("feelslike", str(round(feels_like_celsius, 2)))
+            self.client.publish("windspeed", str(wind_speed) + "m/s")
+            self.client.publish("humidity", str(humidity))
+            self.client.publish("description", description)
+            self.client.publish("sunrisetime", str(sunrise_time))
+            self.client.publish("sunsettime", str(sunset_time))
+            pass
