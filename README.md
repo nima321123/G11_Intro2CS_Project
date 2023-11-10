@@ -5,8 +5,8 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
 
 ## Project Overview
 
-1. **Task 1: Clone Climate Info from OpenWeatherMap**
-   - This task is responsible for fetching climate information from the OpenWeatherMap API. It demonstrates how to use an API to collect weather data and showcases the multitasking capabilities of the RTOS.
+1. **Task 1: Publish real time weather data to Adafruit IO server**
+   - This task is responsible for fetching climate information from the OpenWeatherMap API and demonstrates how to publish data to IOT server. It shows the multitasking capabilities of the RTOS.
 
 2. **Task 2: Disease Detection using AI Model**
    - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. 
@@ -26,6 +26,10 @@ To get a local copy up and running, follow these simple steps:
 2. Install the required packages
 
 - **Task 1:**
+  - **Requests**:
+    - Install with: `pip install requests`
+  - **Adafruit-IO**
+    - Install with: `pip install adafruit-io`
 - **Task 2:**
 - **Task 3:**
   - **PyTorch**: PyTorch is a deep learning framework.
