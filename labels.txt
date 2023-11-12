@@ -1,5 +1,0 @@
-0 Daisy
-1 Dandelion
-2 Rose
-3 Sunflower
-4 Tulip
