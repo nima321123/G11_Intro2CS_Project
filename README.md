@@ -5,15 +5,17 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
 
 ## Project Overview
 
-1. **Task 1: Publish real time weather data to Adafruit IO server**
-   - This task is responsible for fetching climate information from the OpenWeatherMap API and demonstrates how to publish data to IOT server. It shows the multitasking capabilities of the RTOS.
+
+1. **Task 1: Clone Climate Info from OpenWeatherMap**
+   - This task is responsible for fetching climate information from the OpenWeatherMap API. It demonstrates how to use an API to collect weather data and showcases the multitasking capabilities of the RTOS.
+   - Dashboard: https://io.adafruit.com/hej_manh/dashboards/introcs
+
 
 2. **Task 2: Disease Detection using AI Model**
    - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. 
 
-3. **Task 3: CNN Image Classification with PyTorch**
-   - Task 3 focuses on computer vision and deep learning, using the PyTorch library to implement a Convolutional Neural Network (CNN) for classifying five different flower species based on images. This task demonstrates the application of deep learning in an RTOS environment.
-
+3. **Task 3: Simple Hangman game** The project is a text-based Hangman game. It randomly selects a word from a predefined list, and the player has 10 attempts to guess the characters in the word. When a correct character is guessed, it is revealed in the word. If an incorrect character is guessed, the player loses a chance. The game continues until the player either guesses all the characters in the word or runs out of chances. After each guess, the user interface updates to display the current revealed characters and checks whether the game is over.
+4. 
 ### Getting Started
 
 To get a local copy up and running, follow these simple steps:
@@ -32,30 +34,14 @@ To get a local copy up and running, follow these simple steps:
     - Install with: `pip install adafruit-io`
 - **Task 2:**
 - **Task 3:**
-  - **PyTorch**: PyTorch is a deep learning framework.
-    - Install with: `pip install torch`
-  - **Torchvision**: Torchvision is a library for computer vision tasks, providing datasets and data transformation utilities.
-    - Install with: `pip install torchvision`
-  - **Matplotlib**: Matplotlib is used for data visualization.
-    - Install with: `pip install matplotlib`
-  - **NumPy**: NumPy is for numerical operations and data manipulation.
-    - Install with: `pip install numpy`
-  - dataset download link: https://drive.google.com/drive/folders/1lBIF4usxogPDP-Nr2qMdLP5jYXwiGV5t?usp=sharing
-You need to specify the correct dataset path and structure in the code to match your project's requirements. If you intend to run this code on a GPU, you'll also need GPU support and the CUDA toolkit installed to take full advantage of PyTorch's GPU acceleration capabilities.
+  
 
 3. Run the main file
    ```sh
    python main.py
    ```
-### Contributing
-
-Contributions make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull 
+#### Dataset 
+https://drive.google.com/drive/folders/13uJ8kKgP3Dv__M-C7wyk59ewBIATiZaT?usp=sharing
 
 #### Contact
 
