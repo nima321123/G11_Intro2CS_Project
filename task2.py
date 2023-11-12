@@ -7,9 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1AU6doHHUJUAZEoXlahyqdRPWNnuIXZyZ
 """
 
-from google.colab import drive
-drive.mount('/content/drive')
-Task2:
+class Task2:
 
     import pandas as pd
     weather = pd.read_csv("/content/drive/MyDrive/Weather_dataset/BerlinGermany.csv", index_col="datetime")
