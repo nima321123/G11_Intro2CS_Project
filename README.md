@@ -11,10 +11,10 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
    - Dashboard: https://io.adafruit.com/hej_manh/dashboards/introcs
 
 
-2. **Task 2: Disease Detection using AI Model**
-   - Task 2 showcases the power of artificial intelligence by utilizing an AI model for disease detection. 
+2. **Task 2: Predict weather using historical weather with Machine Learning**
+   - This task utilizes machine learning algorithms to analyze historical weather patterns. Train the model to predict future weather.
 
-3. **Task 3: Simple Hangman game** The project is a text-based Hangman game. It randomly selects a word from a predefined list, and the player has 10 attempts to guess the characters in the word. When a correct character is guessed, it is revealed in the word. If an incorrect character is guessed, the player loses a chance. The game continues until the player either guesses all the characters in the word or runs out of chances. After each guess, the user interface updates to display the current revealed characters and checks whether the game is over.
+3. **Task 3: Classify weather through image by AI** Train an AI model for image classification (e.g., sunny, cloudy, rainy). Provide suggestions based on weather conditions. Voice output for increased accessibility.
 4. 
 ### Getting Started
 
@@ -33,15 +33,19 @@ To get a local copy up and running, follow these simple steps:
   - **Adafruit-IO**
     - Install with: `pip install adafruit-io`
 - **Task 2:**
+     
 - **Task 3:**
-  
+  - tkinter for GUI
+  - PIL (Pillow) for image processing
+  - keras for loading the pre-trained model
+  - numpy for array manipulation
+  - pyttsx3 for text-to-speech synthesis
 
 3. Run the main file
    ```sh
    python main.py
    ```
-#### Dataset 
-https://drive.google.com/drive/folders/13uJ8kKgP3Dv__M-C7wyk59ewBIATiZaT?usp=sharing
+
 
 #### Contact
 
