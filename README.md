@@ -34,7 +34,8 @@ To get a local copy up and running, follow these simple steps:
   - **Adafruit-IO**
     - Install with: `pip install adafruit-io`
 - **Task 2:**
-     
+- **Requests**:
+    - Install with: `pip install pandas`,'pip install matplotlib,'pip install scikit-learn'
 - **Task 3:**
   - tkinter for GUI
   - PIL (Pillow) for image processing
