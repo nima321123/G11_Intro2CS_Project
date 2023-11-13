@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
@@ -7,22 +8,17 @@ class Task2:
         # Load data
         weather = pd.read_csv(file_path, index_col="datetime")
 
-        # Display unique values in each column
-        for col in weather.columns:
-            unique_values = weather[col].unique()
-            print(f"Column {col}: {unique_values}")
-
         # Handle non-numeric values
+        print(weather)
         weather.replace("your_non_numeric_value", pd.NA, inplace=True)
         weather = weather.apply(pd.to_numeric, errors='coerce')
         weather = weather.ffill().fillna(0)
+        weather = weather.loc[:, (weather != 0).any(axis=0)]
+        print(weather)
 
         # Continue with your existing logic
         null_pct = weather.apply(pd.isnull).sum() / weather.shape[0]
-        valid_columns = weather.columns[null_pct < 0.03]
-
-        print("Valid Columns:")
-        print(valid_columns)
+        print(null_pct)
 
         # Count occurrences of 9999 in each column
         occurrences_9999 = weather.apply(lambda x: (x == 9999).sum())
@@ -41,7 +37,7 @@ class Task2:
 
         # Convert the index to datetime
         weather.index = pd.to_datetime(weather.index)
-
+        print(weather.index)
         # Display the count of years in the index
         year_counts = weather.index.year.value_counts().sort_index()
         print("Year Counts:")
@@ -49,6 +45,7 @@ class Task2:
 
         # Plot the 'tempmax' column
         weather["tempmax"].plot(title="Temperature Max")
+        plt.show()
 
         # Create the 'target' column by shifting 'tempmax'
         weather["target"] = weather["tempmax"].shift(-1)
@@ -66,13 +63,9 @@ class Task2:
         correlation_matrix = weather.corr()
         print("Correlation Matrix:")
         print(correlation_matrix)
-
-        # ... (continue with the rest of your code)
-
-
         rr = Ridge(alpha=0.1)
 
-        predictors = weather.columns[~weather.columns.isin(["target", "name", "station", "preciptype", "sunrise", "sunset", "conditions", "description", "icon", "stations"])]
+        predictors = weather.columns[~weather.columns.isin(["target"])]
 
         def backtest(weather, model, predictors, start=30, step=10):
             all_predictions = []
@@ -95,7 +88,7 @@ class Task2:
         weather = weather.fillna(0)
 
         predictions = backtest(weather, rr, predictors)
-   # Print or return any relevant results
+      # Print or return any relevant results
         print("Predictions:")
         print(predictions)
 
@@ -111,8 +104,24 @@ class Task2:
 
         # Subset of data for May 2021
         print("Subset of data for May 2021:")
-        print(weather.loc["2021-05-01": "2021-05-10"])
+        print(weather.loc["2022-05-01": "2022-05-10"])
 
         # Distribution of rounded differences in predictions
         print("Distribution of rounded differences in predictions:")
         print(predictions["diff"].round().value_counts().sort_index())
+
+        # Assuming 'predictions' is a Pandas DataFrame with a 'diff' column
+        rounded_diff_counts = predictions["diff"].round().value_counts().sort_index()
+
+        # Plotting the distribution
+        rounded_diff_counts.plot(kind='bar', color='blue')
+        plt.xlabel('Rounded Differences')
+        plt.ylabel('Frequency')
+        plt.title('Distribution of Rounded Differences in Predictions')
+        plt.show()
+        
+
+if __name__ == "__main__":
+    file_path = "E:/ProjectTemplate1/BerlinGermany.csv"
+    task2_instance = Task2()
+    task2_instance.analyze_weather(file_path)
