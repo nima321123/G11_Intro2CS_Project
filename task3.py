@@ -4,7 +4,7 @@ import sys
 import time
 from Adafruit_IO import MQTTClient
 
-class Task1:
+class Task3:
     def __init__(self):
         print("Init task 1")
         #define the URL
