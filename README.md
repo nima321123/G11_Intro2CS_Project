@@ -34,14 +34,12 @@ To get a local copy up and running, follow these simple steps:
   - **Adafruit-IO**
     - Install with: `pip install adafruit-io`
 - **Task 2:**
-   - **Requests**:
-       - Install with: `pip install pandas`,`pip install matplotlib`,`pip install scikit-learn`
+   - **Libraries**:
+    - Install with: `pip install pandas`,`pip install matplotlib`,`pip install scikit-learn`
 - **Task 3:**
-  - tkinter for GUI
-  - PIL (Pillow) for image processing
-  - keras for loading the pre-trained model
-  - numpy for array manipulation
-  - pyttsx3 for text-to-speech synthesis
+  - **Libraries**:
+    - Install with: `pip install tkinter, `pip install Pillow`, `pip install keras`, `pip install numpy`, `pip install pyttsx3`
+
 
 3. Run the main file
    ```sh
