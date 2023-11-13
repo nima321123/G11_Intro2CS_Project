@@ -14,8 +14,9 @@ This project is designed to follow the Real-Time Operating System (RTOS) framewo
 2. **Task 2: Predict weather using historical weather with Machine Learning**
    - This task utilizes machine learning algorithms to analyze historical weather patterns. Train the model to predict future weather.
 
-3. **Task 3: Classify weather through image by AI** Train an AI model for image classification (e.g., sunny, cloudy, rainy). Provide suggestions based on weather conditions. Voice output for increased accessibility.
-4. 
+3. **Task 3: Classify weather through image by AI**
+   - Train an AI model for image classification (e.g., sunny, cloudy, rainy). Provide suggestions based on weather conditions. Voice output for increased accessibility.
+
 ### Getting Started
 
 To get a local copy up and running, follow these simple steps:
