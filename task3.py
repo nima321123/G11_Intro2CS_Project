@@ -6,7 +6,7 @@ from Adafruit_IO import MQTTClient
 
 class Task3:
     def __init__(self):
-        print("Init task 1")
+        print("Init task 3")
         #define the URL
         self.BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
         self.API_KEY = "c9e9db60a93f15a43de916d49d078ae9"
