@@ -49,7 +49,7 @@ class Task3:
     def message(self, client, feed_id, payload):
         print("Received: " + payload)
 
-    def Task1_Run(self):
+    def Task3_Run(self):
         url = self.BASE_URL + "appid=" + self.API_KEY + "&q=" + self.CITY
         response = requests.get(url).json()
 
