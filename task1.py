@@ -68,6 +68,8 @@ class Task1:
         self.client.connect()
         self.client.loop_background()
 
+        start_time = time.time()
+
         while True:
             #send data to client
             time.sleep(5)
@@ -79,4 +81,8 @@ class Task1:
             self.client.publish("description", description)
             self.client.publish("sunrisetime", str(sunrise_time))
             self.client.publish("sunsettime", str(sunset_time))
+            
+            elapsed_time = time.time() - start_time
+            if elapsed_time >= 20:  
+                self.disconnected(self.client) 
             pass
