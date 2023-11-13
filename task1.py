@@ -6,7 +6,7 @@ import numpy as np
 import pyttsx3
 
 
-class Task3: 
+class Task1: 
     # Load the model
     model = load_model("keras_Model.h5", compile=False)
 
