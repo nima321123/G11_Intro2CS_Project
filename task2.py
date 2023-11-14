@@ -101,6 +101,13 @@ class Task2:
         # Display additional results as needed
         print("Top 5 predictions with the largest differences:")
         print(predictions.sort_values("diff", ascending=False).head())
+        
+        # Assuming 'predictions' is your DataFrame with 'actual', 'prediction', and 'diff' columns
+        top5_lowest_diff = predictions.nsmallest(5, 'diff')
+
+        # Print or use the top 5 lowest differences
+        print("Top 5 predictions with the lowest differences:")
+        print(top5_lowest_diff)
 
         # Subset of data for May 2021
         print("Subset of data for May 2021:")
