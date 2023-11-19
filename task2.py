@@ -102,7 +102,7 @@ class Task2:
         print("Top 5 predictions with the largest differences:")
         print(predictions.sort_values("diff", ascending=False).head())
         
-        # Assuming 'predictions' is your DataFrame with 'actual', 'prediction', and 'diff' columns
+        
         top5_lowest_diff = predictions.nsmallest(5, 'diff')
 
         # Print or use the top 5 lowest differences
